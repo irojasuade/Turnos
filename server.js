@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/turnos', turnosRouter);
 
 app.get('/', (req, res) => {
-  res.send('Gestor de turnos funcionando ✅');
+  res.send('Gestor de turnos en funcionamiento ✅');
 });
 
 app.listen(port, () => {
