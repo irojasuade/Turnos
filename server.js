@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
   res.send('Gestor de turnos funcionando ✅');
 });
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en puerto ${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Servidor escuchando en puerto ${port}`);
+  });
+}
+
+module.exports = app;
