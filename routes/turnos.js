@@ -31,15 +31,15 @@ router.get('/', async (req, res) => {
   res.json(result.rows);
 });
 
-router.get('/:fecha', async (req, res) => {
-  const { fecha } = req.params;
-  const result = await db.query('SELECT * FROM turnos WHERE fecha = $1 ORDER BY hora', [fecha]);
-  res.json(result.rows);
-});
-
 router.get('/cliente/:nombre', async (req, res) => {
   const { nombre } = req.params;
   const result = await db.query('SELECT * FROM turnos WHERE cliente ILIKE $1 ORDER BY fecha DESC', [`%${nombre}%`]);
+  res.json(result.rows);
+});
+
+router.get('/:fecha', async (req, res) => {
+  const { fecha } = req.params;
+  const result = await db.query('SELECT * FROM turnos WHERE fecha = $1 ORDER BY hora', [fecha]);
   res.json(result.rows);
 });
 
